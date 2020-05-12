@@ -5,6 +5,9 @@ using namespace std;
 int main()
 {
     double ganhoSalario, ganhoServicos, ganhoCapital, gastoMedico, gastoEducacao;
+    double impostoSalario, impostoServico, impostoCapital;
+
+    // LEITURA DOS DADOS
 
     cout << "Renda anual com salario: ";
     cin >> ganhoSalario;
@@ -16,6 +19,33 @@ int main()
     cin >> gastoMedico;
     cout << "Gastos educacionais: ";
     cin >> gastoEducacao;
+
+    // CALCULOS CONSOLIDADO DE RENDA
+
+    double salarioMensal = ganhoSalario / 12.0;
+
+    if (salarioMensal < 3000.0) {
+        impostoSalario = 0.0;
+    }
+    else if (salarioMensal < 5000.0) {
+        impostoSalario = ganhoSalario * 0.1;
+    }
+    else {
+        impostoSalario = ganhoSalario * 0.2;
+    }
+
+    impostoServico = ganhoServicos * 0.15;
+
+    impostoCapital = ganhoCapital * 0.2;
+
+    // RELATORIO
+
+    cout << fixed << setprecision(2);
+    cout << endl << "RELATORIO DE IMPOSTO DE RENDA" << endl << endl;
+    cout << "CONSOLIDADO DE RENDA:" << endl;
+    cout << "Imposto sobre salario: " << impostoSalario << endl;
+    cout << "Imposto sobre servicos: " << impostoServico << endl;
+    cout << "Imposto sobre ganho de capital: " << impostoCapital << endl;
 
     return 0;
 }
