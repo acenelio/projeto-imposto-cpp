@@ -6,6 +6,7 @@ int main()
 {
     double ganhoSalario, ganhoServicos, ganhoCapital, gastoMedico, gastoEducacao;
     double impostoSalario, impostoServico, impostoCapital;
+    double impostoBruto, maximoDedutivel, gastosDedutiveis;
 
     // LEITURA DOS DADOS
 
@@ -38,6 +39,15 @@ int main()
 
     impostoCapital = ganhoCapital * 0.2;
 
+    // CALCULO DAS DEDUCOES
+
+    impostoBruto = impostoSalario + impostoServico + impostoCapital;
+
+    maximoDedutivel = impostoBruto * 0.3;
+
+    gastosDedutiveis = gastoEducacao + gastoMedico;
+
+
     // RELATORIO
 
     cout << fixed << setprecision(2);
@@ -46,6 +56,10 @@ int main()
     cout << "Imposto sobre salario: " << impostoSalario << endl;
     cout << "Imposto sobre servicos: " << impostoServico << endl;
     cout << "Imposto sobre ganho de capital: " << impostoCapital << endl;
+
+    cout << endl << "DEDUCOES:" << endl;
+    cout << "Maximo dedutivel: " << maximoDedutivel << endl;
+    cout << "Gastos dedutiveis: " << gastosDedutiveis << endl;
 
     return 0;
 }
