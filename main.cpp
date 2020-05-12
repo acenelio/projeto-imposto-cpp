@@ -7,6 +7,7 @@ int main()
     double ganhoSalario, ganhoServicos, ganhoCapital, gastoMedico, gastoEducacao;
     double impostoSalario, impostoServico, impostoCapital;
     double impostoBruto, maximoDedutivel, gastosDedutiveis;
+    double abatimento, impostoDevido;
 
     // LEITURA DOS DADOS
 
@@ -47,6 +48,16 @@ int main()
 
     gastosDedutiveis = gastoEducacao + gastoMedico;
 
+    // CALCULOS FINAIS
+
+    if (gastosDedutiveis > maximoDedutivel) {
+        abatimento = maximoDedutivel;
+    }
+    else {
+        abatimento = gastosDedutiveis;
+    }
+
+    impostoDevido = impostoBruto - abatimento;
 
     // RELATORIO
 
@@ -60,6 +71,11 @@ int main()
     cout << endl << "DEDUCOES:" << endl;
     cout << "Maximo dedutivel: " << maximoDedutivel << endl;
     cout << "Gastos dedutiveis: " << gastosDedutiveis << endl;
+
+    cout << endl << "RESUMO:" << endl;
+    cout << "Imposto bruto total: " << impostoBruto << endl;
+    cout << "Abatimento: " << abatimento << endl;
+    cout << "Imposto devido: " << impostoDevido << endl;
 
     return 0;
 }
